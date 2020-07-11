@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    initialization-mode: always
+    url: jdbc:postgresql://weddell-rdb-instance-1.cbfcrk9kwlng.ap-northeast-2.rds.amazonaws.com:5432/weddell
+    username: weddell
+    password: weddellguy
+    driver-class-name: org.postgresql.Driver
