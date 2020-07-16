@@ -1,0 +1,18 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    initialization-mode: always
+    url: ENC(x3IQys9rTMovFmgSB0+F9XxyaxxS6nUimXopkqFl8Yq0WJ2OqDH1exGHmaYWEX9jiUh3ETIePXuMRU7dJztt0v2dcCZ+nJIIndV4w4Sj6k7mpyUFnTDebNiI2WVM6QY0)
+    username: ENC(Ka3p0M07n4UBoYF31W0PybS9D3GB2Bt3)
+    password: ENC(UGGV72mGn/6JwHKi0rntEdRWW6IAJLrT)
+    driver-class-name: org.postgresql.Driver
+
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
