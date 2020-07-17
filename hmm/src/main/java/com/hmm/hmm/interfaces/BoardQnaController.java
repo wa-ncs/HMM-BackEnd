@@ -3,6 +3,7 @@ package com.hmm.hmm.interfaces;
 import com.hmm.hmm.application.BoardQnaService;
 import com.hmm.hmm.interfaces.dto.BoardCreateRequest;
 import com.hmm.hmm.interfaces.dto.BoardQnaDto;
+import com.hmm.hmm.interfaces.dto.PageDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +30,8 @@ public class BoardQnaController {
     }
 
     @GetMapping("/boards")
-    public List<BoardQnaDto> findBoards(@RequestParam(defaultValue = "0") Integer page,
-                                        @RequestParam(defaultValue = "10") Integer size) {
+    public PageDto<BoardQnaDto> findBoards(@RequestParam(defaultValue = "0") Integer page,
+                                           @RequestParam(defaultValue = "10") Integer size) {
         return qnaBoardService.findBoards(PageRequest.of(page,size));
     }
 }
