@@ -4,15 +4,14 @@ import com.hmm.hmm.domain.BoardQna;
 import com.hmm.hmm.domain.BoardQnaRepository;
 import com.hmm.hmm.interfaces.dto.BoardCreateRequest;
 import com.hmm.hmm.interfaces.dto.BoardQnaDto;
+import com.hmm.hmm.interfaces.dto.PageDto;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -31,11 +30,9 @@ public class BoardQnaService {
         return BoardQnaDto.of(boardQna);
     }
 
-    public List<BoardQnaDto> findBoards(Pageable pageable) {
+    public PageDto<BoardQnaDto> findBoards(Pageable pageable) {
         Page<BoardQna> boardQnaList = boardQnaRepository.findAll(pageable);
 
-        return boardQnaList.stream()
-                .map(BoardQnaDto::new)
-                .collect(Collectors.toList());
+        return PageDto.of(boardQnaList, BoardQnaDto::new);
     }
 }
