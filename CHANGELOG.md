@@ -1,3 +1,6 @@
+##[0.2.1]
+### [feature/HMM-BackEnd-18] Spring Security 세팅
+
 ## [0.2.0]
 ### [feature/HMM-BackEnd-14] Paging Response #15
 ### [feature/HMM-BackEnd-12] 게시글 조회 API #13
