@@ -1,15 +1,15 @@
 package com.hmm.hmm.interfaces;
 
 import com.hmm.hmm.application.BoardQnaService;
-import com.hmm.hmm.domain.BoardQna;
 import com.hmm.hmm.interfaces.dto.BoardCreateRequest;
+import com.hmm.hmm.interfaces.dto.BoardQnaDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/qna-boards")
@@ -19,7 +19,18 @@ public class BoardQnaController {
     private final BoardQnaService qnaBoardService;
 
     @PostMapping("/create")
-    public BoardQna create(@Valid @RequestBody BoardCreateRequest createRequest) {
-        return qnaBoardService.create(createRequest);
+    public BoardQnaDto create(@Valid @RequestBody BoardCreateRequest createRequest) {
+        return BoardQnaDto.of(qnaBoardService.create(createRequest));
+    }
+
+    @GetMapping("/{boardId}")
+    public ResponseEntity<BoardQnaDto> find(@PathVariable("boardId") Long boardId) {
+        return ResponseEntity.ok(qnaBoardService.find(boardId));
+    }
+
+    @GetMapping("/boards")
+    public List<BoardQnaDto> findBoards(@RequestParam(defaultValue = "0") Integer page,
+                                        @RequestParam(defaultValue = "10") Integer size) {
+        return qnaBoardService.findBoards(PageRequest.of(page,size));
     }
 }
