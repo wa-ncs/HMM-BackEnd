@@ -34,4 +34,9 @@ public class BoardQnaController {
                                            @RequestParam(defaultValue = "10") Integer size) {
         return qnaBoardService.findBoards(PageRequest.of(page,size));
     }
+
+    @DeleteMapping("/{boardId}")
+    public void delete(@PathVariable("boardId") Long boardId) {
+        qnaBoardService.delete(boardId);
+    }
 }
