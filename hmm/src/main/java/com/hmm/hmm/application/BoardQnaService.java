@@ -4,6 +4,7 @@ import com.hmm.hmm.domain.BoardQna;
 import com.hmm.hmm.domain.BoardQnaRepository;
 import com.hmm.hmm.interfaces.dto.BoardCreateRequest;
 import com.hmm.hmm.interfaces.dto.BoardQnaDto;
+import com.hmm.hmm.interfaces.dto.BoardUpdateRequest;
 import com.hmm.hmm.interfaces.dto.PageDto;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +39,16 @@ public class BoardQnaService {
         Page<BoardQna> boardQnaList = boardQnaRepository.findAll(pageable);
 
         return PageDto.of(boardQnaList, BoardQnaDto::new);
+    }
+
+    @Transactional
+    public BoardQna update(@NonNull final Long id,
+                           @NonNull final BoardUpdateRequest request) {
+        BoardQna boardQna = boardQnaRepository.findById(id)
+                .orElseThrow(NoSuchElementException::new);
+        BoardQna updateBoard = request.toEntity();
+        updateBoard.setId(id);
+        return boardQnaRepository.save(updateBoard);
     }
 
     @Transactional
