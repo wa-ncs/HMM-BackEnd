@@ -28,6 +28,7 @@ dependencies {
     testAnnotationProcessor('org.projectlombok:lombok')
     testCompileOnly('org.projectlombok:lombok')
     compile group: "org.springframework.boot", name: "spring-boot-starter-security"
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.840'
 }
 
 test {
