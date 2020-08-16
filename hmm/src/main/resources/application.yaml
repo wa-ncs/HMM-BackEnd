@@ -7,11 +7,17 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     initialization-mode: always
-    url: ENC(x3IQys9rTMovFmgSB0+F9XxyaxxS6nUimXopkqFl8Yq0WJ2OqDH1exGHmaYWEX9jiUh3ETIePXuMRU7dJztt0v2dcCZ+nJIIndV4w4Sj6k7mpyUFnTDebNiI2WVM6QY0)
-    username: ENC(Ka3p0M07n4UBoYF31W0PybS9D3GB2Bt3)
-    password: ENC(UGGV72mGn/6JwHKi0rntEdRWW6IAJLrT)
+    url: ENC(BLENGp3nVRE0SzgbWsm6FA2cwYLZ5DoJTMPzyLYfxOTzac0G3tXa6Ce2g+oIyHnHcJ9hkR3ZyM0ARcr50r4ByykvHCW6QKK0H8+JzuVoO5vvDVKGziy5vEM7G6IxCntQ)
+    username: ENC(7/9Wo2Hm4aXSIQNxAG3JLsudfbFFup4+)
+    password: ENC(KflsFfklafzDphrnyML4GTT6q8E8kn9Q)
     driver-class-name: org.postgresql.Driver
 
+aws:
+  s3:
+    accessKey: ENC(cVYHNYww2BboQZbA66YzswIa0rNtQLWunQKi0tv1vHY=)
+    secretKey: ENC(juJvtJfYbYPf7solw1AujGscys/MeiULhm6t6Ozr1JI6e97G43u2EwBwhZS9eXQZaQeflnup4kc=)
+    bucket: wancs-hmm
+    url: d35vc3v6bqtzzy.cloudfront.net
 
 jasypt:
   encryptor:
