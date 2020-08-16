@@ -30,6 +30,11 @@ dependencies {
     testAnnotationProcessor('org.projectlombok:lombok')
     testCompileOnly('org.projectlombok:lombok')
     compile group: "org.springframework.boot", name: "spring-boot-starter-security"
+
+    compile group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.1'
+    runtime 'io.jsonwebtoken:jjwt-impl:0.11.1'
+    runtime 'io.jsonwebtoken:jjwt-jackson:0.11.1'
+    implementation 'junit:junit:4.12'
 }
 
 test {

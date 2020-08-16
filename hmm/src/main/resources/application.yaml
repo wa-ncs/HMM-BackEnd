@@ -16,3 +16,6 @@ spring:
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor
+
+jwt:
+  secret: 12345678901234567890123456789012
