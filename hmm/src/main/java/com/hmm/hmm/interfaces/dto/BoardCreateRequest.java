@@ -1,10 +1,12 @@
 package com.hmm.hmm.interfaces.dto;
 
 import com.hmm.hmm.domain.BoardQna;
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
 
+@Builder
 @Getter
 public class BoardCreateRequest {
 
