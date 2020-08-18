@@ -13,7 +13,7 @@ public class JwtUtil {
     this.key = Keys.hmacShaKeyFor(secret.getBytes());
   }
 
-  public String createToken(Integer userId, String name) {
+  public String createToken(Long userId, String name) {
     // TODO: JJWT 사용!
 
     return Jwts.builder()

@@ -1,5 +1,7 @@
 package com.hmm.hmm.config;
 
+import io.jsonwebtoken.security.Keys;
+import java.security.Key;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
@@ -11,15 +13,15 @@ public class AppProperties {
     private final OAuth2 oauth2 = new OAuth2();
 
     public static class Auth {
-        private String tokenSecret;
+        private Key tokenSecret;
         private long tokenExpirationMsec;
 
-        public String getTokenSecret() {
+        public Key getTokenSecret() {
             return tokenSecret;
         }
 
         public void setTokenSecret(String tokenSecret) {
-            this.tokenSecret = tokenSecret;
+            this.tokenSecret = Keys.hmacShaKeyFor(tokenSecret.getBytes());
         }
 
         public long getTokenExpirationMsec() {
