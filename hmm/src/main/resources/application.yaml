@@ -11,6 +11,15 @@ spring:
     username: ENC(7/9Wo2Hm4aXSIQNxAG3JLsudfbFFup4+)
     password: ENC(KflsFfklafzDphrnyML4GTT6q8E8kn9Q)
     driver-class-name: org.postgresql.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 453676142971-db0lrfql7ljj9jol4961jn0hev0fuhk1.apps.googleusercontent.com
+            client-secret: MRTXMpkm6UetphlcHYtYaIRo
+            redirectUri: "{baseUrl}/login/oauth2/code/google"
+            scope: email, profile
 
 aws:
   s3:
@@ -25,3 +34,4 @@ jasypt:
 
 jwt:
   secret: 12345678901234567890123456789012
+  expirationMsec: 864000000

@@ -35,6 +35,9 @@ dependencies {
     runtime 'io.jsonwebtoken:jjwt-jackson:0.11.1'
     implementation 'junit:junit:4.12'
     compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.840'
+    compile 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    compile "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 test {

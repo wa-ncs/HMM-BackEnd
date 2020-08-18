@@ -2,11 +2,10 @@ package com.hmm.hmm.domain.user;
 
 import com.hmm.hmm.domain.BaseEntity;
 import java.time.LocalDateTime;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import com.hmm.hmm.domain.auth.AuthProvider;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +24,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 public class User extends BaseEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer userId;
+  private Long userId;
 
   private String email;
 
@@ -35,10 +34,13 @@ public class User extends BaseEntity {
 
   private String password;
 
-  @ColumnDefault("hmm")
-  private String snsType;
+  @NotNull
+  @Enumerated(EnumType.STRING)
+  private AuthProvider snsType;
 
   private String snsId;
+
+
   @ColumnDefault("/")
   private String profile;
 

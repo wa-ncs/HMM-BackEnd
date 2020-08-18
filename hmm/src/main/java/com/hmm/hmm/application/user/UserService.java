@@ -1,7 +1,10 @@
 package com.hmm.hmm.application.user;
 
+import com.hmm.hmm.domain.auth.AuthProvider;
 import com.hmm.hmm.domain.user.User;
 import com.hmm.hmm.domain.user.UserRepository;
+import com.hmm.hmm.interfaces.auth.EmailNotExistedException;
+import com.hmm.hmm.interfaces.auth.PasswordWrongException;
 import com.hmm.hmm.interfaces.user.UserExistedException;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -29,7 +32,7 @@ public class UserService {
     String password = resource.getPassword();
     String userName = resource.getUserName();
     String nickName = resource.getNickName();
-    String snsType = resource.getSnsType();
+    AuthProvider snsType = AuthProvider.local;
     String snsId = resource.getSnsId();
     Optional<User> existed = userRepository.findByEmail(email);
 
@@ -53,16 +56,16 @@ public class UserService {
     return userRepository.save(user);
   }
 
-//  public User authenticate(String email, String secret) {
-//    User user = userRepository.findByEmail(email)
-//        .orElseThrow(() -> new EmailNotExistedException(email));
-//
-//    if(!secretEncoder.matches(secret, user.getSecret())){
-//      throw new PasswordWrongException();
-//    }
-//
-//    return user;
-//  }
-//
+  public User authenticate(String email, String secret) {
+    User user = userRepository.findByEmail(email)
+        .orElseThrow(() -> new EmailNotExistedException(email));
+
+    if(!secretEncoder.matches(secret, user.getPassword())){
+      throw new PasswordWrongException();
+    }
+
+    return user;
+  }
+
 
 }
