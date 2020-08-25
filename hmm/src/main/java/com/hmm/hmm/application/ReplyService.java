@@ -19,7 +19,7 @@ public class ReplyService {
 
     private final ReplyRepository ReplyRepository;
 
-    public Reply create(@NonNull final BoardCreateRequest request) {
+    public Reply create(@NonNull final ReplyCreateRequest request) {
         return ReplyRepository.save(request.toEntity());
     }
 

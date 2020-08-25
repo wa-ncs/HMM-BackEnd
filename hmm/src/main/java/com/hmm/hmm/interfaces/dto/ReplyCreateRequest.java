@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
 
+
 @Getter
 public class ReplyCreateRequest {
 
@@ -14,8 +15,8 @@ public class ReplyCreateRequest {
     @NotNull(message = "The userId must not be Null")
     private Long userId;
 
-    public BoardQna toEntity() {
-        return BoardQna.builder()
+    public Reply toEntity() {
+        return Reply.builder()
                 .content(content)
                 .userId(userId)
                 .build();

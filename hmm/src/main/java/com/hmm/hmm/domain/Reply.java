@@ -22,7 +22,7 @@ public class Reply extends BaseEntity {
     private Long userId;
 
     @Builder
-    public BoardQna(String content, Long userId) {
+    public Reply(String content, Long userId) {
         this.content = content;
         this.userId = userId;
     }
